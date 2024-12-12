@@ -1,10 +1,7 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  height: 100vh;
+  display: flex;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,19 +10,85 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Left-side{
+  background-color: white;
+  width: 20%;
+  height: 100vh;
 }
 
-.App-link {
-  color: #61dafb;
+.Page-box{
+  display: flex;
+  padding-left: 5px;
+  height: auto;
+  width: 180px;
+  border-radius: 20px;
+  background-color: white;
+  margin-left: auto;
+  margin-right: auto;
+}
+.Page-box img{
+  height: 30px;
+  width: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 5px;
+}
+.avatar-circle{
+  margin-top: 20px;
+  border-radius: 50%;
+  /* width: 100px;
+  height: 100px; */
+}
+
+.Center{
+  background-color: white;
+  height: 100vh;
+  width: 60%;
+  /* display: flex; */
+  padding-left: 10px;
+  padding-right: 10px;
+  overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden;
+}
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.Center::-webkit-scrollbar {
+  width: 0; /* Set width to 0 */
+  height: 0; /* Set height to 0 */
+}
+
+/* Hide scrollbar for Firefox */
+.Center {
+  scrollbar-width: thin; /* Set a thin scrollbar */
+  scrollbar-color: transparent transparent; /* Set colors to transparent */
+}
+
+.Right-side{
+  background-color: white;
+  width: 20%;
+  height: 100vh;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+.Messages{
+  width: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Post{
+  width: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Friends{
+  width: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.Settings{
+  width: 60%;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 @keyframes App-logo-spin {

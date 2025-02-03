@@ -43,21 +43,6 @@ function SignUp() {
             
         }
     }
-    
-
-    function Input(props) {
-        return (
-            <input
-                className="input"
-                placeholder={props.text}
-                spellCheck="false"
-                type={props.type}
-                name={props.name}
-                value={props.value}
-                onChange={props.onChange}
-            />
-        );
-    }
 
     return (
         <div style={{ display: "flex", height: "100vh", width: "100%" }}>
@@ -66,27 +51,33 @@ function SignUp() {
                 <p style={{ fontSize: 25, color: "white", textAlign: "center" }}>
                     Sign up for Campus Talks
                 </p>
-                <Input
-                    text="Name"
-                    type="text"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleChange}
-                />
-                <Input
-                    text="Email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                <Input
-                    text="Password"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
+                <input
+                className="input"
+                placeholder={"Username"}
+                spellCheck="false"
+                type={'username'}
+                name={'username'}
+                value={formData.username}
+                onChange={(e)=>{handleChange(e)}}
+            />
+            <input
+                className="input"
+                placeholder={'Email'}
+                spellCheck="false"
+                type={'email'}
+                name={'email'}
+                value={formData.email}
+                onChange={(e)=>{handleChange(e)}}
+            />
+            <input
+                className="input"
+                placeholder={"Password"}
+                spellCheck="false"
+                type={'password'}
+                name={'password'}
+                value={formData.password}
+                onChange={(e)=>handleChange(e)}
+            />
                 <button onClick={handleSignUp} className="signUpButton">
                     Sign Up
                 </button>

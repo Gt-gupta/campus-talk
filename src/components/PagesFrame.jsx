@@ -11,13 +11,13 @@ function PagesFrame(props) {
     }
     return (
         <div 
-            onClick={() => {props.selectIndex(props.index) ; props.update(props.index); props.index===3&&handleButtonClick() ;}} 
+            onClick={() => {props.selectIndex(props.index) ; props.update(props.index); props.index===4&&handleButtonClick() ;}} 
             className="Page-box" 
             style={{ backgroundColor: props.chosenIndex === props.index ? "black" : "white" , cursor:"pointer" }}
         >
             <img src={props.img} alt="Page" height={20} width={20} style={{objectFit:"contain"}} />
             <p style={{
-                color: props.index===3 ? "red" : props.chosenIndex === props.index ? "white" : "black",
+                color: props.index===4 ? "red" : props.chosenIndex === props.index ? "white" : "black",
                 fontWeight: 500,
                 fontSize:19
             }}>

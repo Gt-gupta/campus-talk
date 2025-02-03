@@ -2,8 +2,8 @@ const db = require('../db');
 
 exports.deleteFriend = async (req, res) => {
     // Correctly access headers
-    const id2 = parseInt(req.headers.id2);  // Use req.headers, not req.header
-    const userId = parseInt(req.userId);    // Ensure req.userId is being set properly by your authMiddleware
+    const {id2} = req.body;  
+    const userId = req.userId;   
 
     if (!id2 || !userId) {
         return res.status(400).json({

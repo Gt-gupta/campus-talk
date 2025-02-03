@@ -11,39 +11,45 @@ function SignIn({ login }) {
         password: '',
     });
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    const handleChange = (name,e) => {
+        if(name==="email"){
+            setFormData({...formData , email : e.target.value });
+        }else 
+        setFormData({ ...formData, password: e.target.value });
     };
 
     const navigate = useNavigate();
 
+    const handleForgot = async () => {
+        if (!formData.email.endsWith("@iitg.ac.in")) {
+            alert("Only IITG email addresses are allowed.");
+            return; 
+        }
+        try {
+            const response = await axios.post(`http://localhost:5000/auth/forgotPassword`, {
+                email: formData.email, 
+            });
+            alert(response.data.message || "Password reset email sent successfully.");
+        } catch (err) {
+            console.error("Error during Forgot:", err.response?.data || err.message);
+            alert(err.response?.data.message || "Failed to send password reset email.");
+        }
+    };
+    
+
     const handleButtonClick = async(e) => {
         e.preventDefault();
         try {
-            console.log(process.env);
-            const response = await axios.post(`http://localhost:5000/auth/login`, formData);
-            console.log('Login Successful:', response.data);
-            localStorage.setItem('token', response.data.token);
             
+            const response = await axios.post(`http://localhost:5000/auth/login`, formData);
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('username',response.data.name);
+            localStorage.setItem('userId',response.data.userId);
             navigate('/');
         } catch (error) {
             console.error('Error during Login:', error.response.data);
         }
         
-    }
-
-    function Input(props) {
-        return (
-            <input
-                className="input"
-                placeholder={props.text}
-                spellCheck="false"
-                type={props.type}
-                name={props.name}
-                value={props.value}
-                onChange={props.onChange}
-            />
-        );
     }
     
 
@@ -54,28 +60,31 @@ function SignIn({ login }) {
                 <p style={{ fontSize: 25, color: "white", textAlign: "center" }}>
                     Sign in to Campus Talks
                 </p>
-                <Input
-                    text="Email"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                <Input
-                    text="Password"
-                    type="password"
-                    name="password"
-                    value={formData.password}
-                    onChange={handleChange}
-                />
+                <input
+                className="input"
+                placeholder="Email"
+                spellCheck="false"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={(e) => handleChange('email',e)}
+            />
+            <input
+                className="input"
+                placeholder={"Password"}
+                spellCheck="false"
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={(e) => handleChange('password',e)}
+            />
 
                 <button onClick={handleButtonClick} className="signInButton">
                     Sign In
                 </button>
                 <div className="line"></div>
-                <div onClick={login} className="google" style={{backgroundColor:"white",color:"black"}}>
-                    <img src="/google.png" height={20} width={20} />
-                    <p style={{marginLeft:10,fontSize:18}}>Google</p>
+                <div>
+                    <p onClick={handleForgot} style={{color: "#61dafb", cursor: "pointer"}}>Forgot Password</p>
                 </div>
                 <p style={{ color: "white", textAlign: "center" }}>
                     Don't have an account?{" "}

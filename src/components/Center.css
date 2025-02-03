@@ -4,11 +4,12 @@
 }
 
 .template{
-    background-color: pink;
+    background-color: rgb(57, 57, 239);
     padding: 10px;
     border-radius: 20px;
-    margin-top: 20px;
+    margin-bottom: 20px;
     border: .05px solid black;
+    display: block;
 }
 
 .footer{

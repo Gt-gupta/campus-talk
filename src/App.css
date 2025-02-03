@@ -2,6 +2,12 @@
   text-align: center;
   height: 100vh;
   display: flex;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent; 
+}
+.App::-webkit-scrollbar {
+  width: 0;
+  height: 0; 
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -14,6 +20,7 @@
   background-color: white;
   width: 20%;
   height: 100vh;
+  overflow: hidden;
 }
 
 .Page-box{
@@ -44,22 +51,20 @@
   background-color: white;
   height: 100vh;
   width: 60%;
-  /* display: flex; */
   padding-left: 10px;
   padding-right: 10px;
-  overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden;
+  /* overflow-y: auto; */
 }
 /* Hide scrollbar for WebKit browsers (Chrome, Safari) */
 .Center::-webkit-scrollbar {
-  width: 0; /* Set width to 0 */
-  height: 0; /* Set height to 0 */
+  width: 0;
+  height: 0; 
 }
 
 /* Hide scrollbar for Firefox */
 .Center {
-  scrollbar-width: thin; /* Set a thin scrollbar */
-  scrollbar-color: transparent transparent; /* Set colors to transparent */
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent; 
 }
 
 .Right-side{
@@ -68,6 +73,7 @@
   height: 100vh;
   padding-right: 5px;
   padding-left: 5px;
+  overflow: hidden;
 }
 
 .Messages{
@@ -85,17 +91,9 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-.Settings{
-  width: 60%;
-  padding-left: 10px;
-  padding-right: 10px;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.search{
+  width: 60%;
+  height: 100%;
+  overflow-y: auto;
 }

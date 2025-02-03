@@ -1,10 +1,10 @@
 import React from "react";
 import "./RightSide.css"
 
-function StoryTemplate(){
+function StoryTemplate(props){
     return (
         <div className="story">
-            <p>Step into the festive spirit with stylish handbags, chic watches that redefine your Diwali wardrobe</p>
+            <p>{props.text}</p>
         </div>
     );
 }

@@ -1,13 +1,19 @@
 /* signUp.css */
 
+.image {
+    width: 70%;
+    height: 100vh; /* Ensures the image fills its container */
+    object-fit: cover; /* Covers container without distortion */
+}
+
 .signUp {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 30%;
     height: 100vh;
-    background-color: #f4f4f4;
+    background-color: black;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -76,10 +82,3 @@
     transition: background-color 0.3s ease;
 }
 
-.google:hover {
-    background-color: #f4f4f4;
-}
-
-.google img {
-    margin-right: 10px;
-}
